@@ -5,25 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="177dp">
 
-    <ImageView
-        android:id="@+id/container"
-
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_alignTop="@+id/tvTitle"
-
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="-111dp"
-        android:layout_marginTop="-5dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="500dp"
-        android:layout_toEndOf="@+id/ivPoster"
-        android:background="@layout/organized" />
 
     <ImageView
         android:id="@+id/ivPoster"
-        android:layout_width="10dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -35,9 +20,11 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@+id/ivPoster"
+        android:textColor="@color/white"
+        android:layout_marginStart="20dp"
+
+        android:layout_toEndOf="@id/ivPoster"
+        android:layout_alignParentRight="true"
         android:textSize="24sp"
         tools:text="Fast Furious Presents: Hobbs Shaw" />
 
@@ -45,9 +32,11 @@
         android:id="@+id/tvOverview"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitle"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_toEndOf="@+id/ivPoster"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/white"
+        android:layout_toEndOf="@id/ivPoster"
+        android:layout_below="@id/tvTitle"
+        android:layout_alignParentRight="true"
+
         tools:text='A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground "fight clubs" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion' />
 </RelativeLayout>
