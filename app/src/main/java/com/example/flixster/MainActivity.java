@@ -13,7 +13,7 @@ import android.view.View;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
-//import com.example.flixster.Adapters.MovieAdapter;
+import com.example.flixster.Adapters.MovieAdapter;
 import com.example.flixster.Models.Movie;
 import com.facebook.stetho.inspector.jsonrpc.JsonRpcException;
 
@@ -44,10 +44,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        RecyclerView rvMovies = findViewById(R.id.rvMovies);
+        movies = new ArrayList<>();
+
+        movies = new ArrayList<>();
+
         //View view = activityMainBinding.getRoot();
         //setContentView(view);
         //RecyclerView rvMovies = activityMainBinding.rvMovies;
-        movies = new ArrayList<>();
 
         /*MovieAdapter.OnClickListener onClickListener = new MovieAdapter.OnClickListener() {
             @Override
@@ -64,14 +68,17 @@ public class MainActivity extends AppCompatActivity {
                 // Display the activity
                 startActivityForResult(i, DETAILS_CODE);
             }
-        };
+        }; */
 
         // Create an adapter
-        MovieAdapter movieAdapter = new MovieAdapter(this, movies, onClickListener);
+        // new MovieAdapter movieAdapter = new MovieAdapter(this, movies, onClickListener);
+        MovieAdapter movieAdapter = new MovieAdapter(this, movies);
+
         // Set adapter on the RecyclerView
         rvMovies.setAdapter(movieAdapter);
+
         // Set layout manager on the Recycler View
-        rvMovies.setLayoutManager(new LinearLayoutManager(this)); */
+        rvMovies.setLayoutManager(new LinearLayoutManager(this));
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
@@ -83,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG, "Results: " + results.toString());
                     movies.addAll(Movie.fromJsonArray(results));
+                    movieAdapter.notifyDataSetChanged();
                     Log.i(TAG, "Movies: " + movies.size());
                 } catch (JSONException | JsonRpcException e) {
                     Log.e(TAG, "Hit json exception", e);
