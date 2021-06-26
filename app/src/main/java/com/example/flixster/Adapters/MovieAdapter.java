@@ -21,12 +21,18 @@ import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
+    public interface OnClickListener {
+        void onMovieClicked(int position);
+    }
+
     Context context;
     List<Movie> movies;
+    OnClickListener clickListener;
 
     public MovieAdapter(Context context, List<Movie> movies) {
         this.context = context;
         this.movies = movies;
+        this.clickListener = clickListener;
     }
 
     // Usually involves inflating a layout from XML and returning the holder

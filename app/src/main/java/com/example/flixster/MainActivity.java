@@ -27,7 +27,7 @@ import okhttp3.Headers;
 
 public class MainActivity extends AppCompatActivity {
 
-    //ActivityMainBinding activityMainBinding;
+    // ActivityMainBinding activityMainBinding;
 
     public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
     public static final String TAG = "MainActivity";
@@ -47,13 +47,11 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
         movies = new ArrayList<>();
 
-        movies = new ArrayList<>();
+        /*View view = activityMainBinding.getRoot();
+        setContentView(view);
+        RecyclerView rvMovies = activityMainBinding.rvMovies;
 
-        //View view = activityMainBinding.getRoot();
-        //setContentView(view);
-        //RecyclerView rvMovies = activityMainBinding.rvMovies;
-
-        /*MovieAdapter.OnClickListener onClickListener = new MovieAdapter.OnClickListener() {
+        MovieAdapter.OnClickListener onClickListener = new MovieAdapter.OnClickListener() {
             @Override
             public void onMovieClicked(int position) {
                 Log.d("MainActivity", "Click at position " + position);
